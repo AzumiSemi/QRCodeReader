@@ -16,7 +16,7 @@
 		50B1B0AB1D1CFFC900CE798D /* QRCodeReaderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B1B0AA1D1CFFC900CE798D /* QRCodeReaderUITests.m */; };
 		50B1B0BB1D1D08C700CE798D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B1B0BA1D1D08C700CE798D /* WebViewController.m */; };
 		50B1B0BE1D1D08FD00CE798D /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B1B0BD1D1D08FD00CE798D /* QRCodeViewController.m */; };
-		50B1B0C11D1D092800CE798D /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B1B0C01D1D092800CE798D /* QRCodeReaderViewController.m */; };
+		50B1B0C41D1D1C9400CE798D /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B1B0C31D1D1C9400CE798D /* QRCodeReaderViewController.m */; };
 		DA3E1936B1225D26F61DB9A4 /* libPods-QRCodeReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 874505B7E3051FD773112D83 /* libPods-QRCodeReader.a */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +58,8 @@
 		50B1B0BA1D1D08C700CE798D /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		50B1B0BC1D1D08FD00CE798D /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
 		50B1B0BD1D1D08FD00CE798D /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
-		50B1B0BF1D1D092800CE798D /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
-		50B1B0C01D1D092800CE798D /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		50B1B0C21D1D1C9400CE798D /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
+		50B1B0C31D1D1C9400CE798D /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
 		874505B7E3051FD773112D83 /* libPods-QRCodeReader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QRCodeReader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE6023508EF8BBD622F42D8 /* Pods-QRCodeReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRCodeReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,11 +118,11 @@
 				50B1B0881D1CFFC800CE798D /* AppDelegate.h */,
 				50B1B0891D1CFFC900CE798D /* AppDelegate.m */,
 				50B1B0B91D1D08C700CE798D /* WebViewController.h */,
+				50B1B0C21D1D1C9400CE798D /* QRCodeReaderViewController.h */,
+				50B1B0C31D1D1C9400CE798D /* QRCodeReaderViewController.m */,
 				50B1B0BA1D1D08C700CE798D /* WebViewController.m */,
 				50B1B0BC1D1D08FD00CE798D /* QRCodeViewController.h */,
 				50B1B0BD1D1D08FD00CE798D /* QRCodeViewController.m */,
-				50B1B0BF1D1D092800CE798D /* QRCodeReaderViewController.h */,
-				50B1B0C01D1D092800CE798D /* QRCodeReaderViewController.m */,
 				50B1B08E1D1CFFC900CE798D /* Main.storyboard */,
 				50B1B0911D1CFFC900CE798D /* Assets.xcassets */,
 				50B1B0931D1CFFC900CE798D /* LaunchScreen.storyboard */,
@@ -362,7 +362,7 @@
 			files = (
 				50B1B08A1D1CFFC900CE798D /* AppDelegate.m in Sources */,
 				50B1B0BB1D1D08C700CE798D /* WebViewController.m in Sources */,
-				50B1B0C11D1D092800CE798D /* QRCodeReaderViewController.m in Sources */,
+				50B1B0C41D1D1C9400CE798D /* QRCodeReaderViewController.m in Sources */,
 				50B1B0BE1D1D08FD00CE798D /* QRCodeViewController.m in Sources */,
 				50B1B0871D1CFFC800CE798D /* main.m in Sources */,
 			);

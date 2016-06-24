@@ -6,6 +6,8 @@
 //  Copyright © 2016年 Tsubasa Yonenaga. All rights reserved.
 //
 
-@interface QRCodeReaderViewController : UIViewController
+#import <ZBarSDK/ZBarSDK.h>
+
+@interface QRCodeReaderViewController : ZBarReaderViewController
 
 @end
