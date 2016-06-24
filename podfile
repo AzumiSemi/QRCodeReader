@@ -1,0 +1,7 @@
+platform :ios, ‘7.0’
+target ‘QRCodeReader’ do
+pod 'NJKWebViewProgress'
+pod 'SVProgressHUD'
+pod 'RDVTabBarController'
+pod 'ZBarSDK'
+end
