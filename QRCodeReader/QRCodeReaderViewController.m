@@ -6,7 +6,6 @@
 //  Copyright © 2016年 Tsubasa Yonenaga. All rights reserved.
 //
 
-#import "QRCodeReaderViewController.h"
 
 @interface QRCodeReaderViewController ()
 

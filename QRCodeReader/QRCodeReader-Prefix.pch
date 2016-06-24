@@ -12,6 +12,22 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-#import <UIKit/UIKit.h>
+#import "UIKit/UIKit.h"
+#import "WebViewController.h"
+#import "QRCodeViewController.h"
+#import "QRCodeReaderViewController.h"
+
+//pod
+#import "NJKWebViewProgress.h"
+#import "NJKWebViewProgressView.h"
+#import "RDVTabBar.h"
+#import "RDVTabBarController.h"
+#import "RDVTabBarItem.h"
+#import "SVIndefiniteAnimatedView.h"
+#import "SVProgressAnimatedView.h"
+#import "SVProgressHUD.h"
+#import "SVRadialGradientLayer.h"
+#import "ZBarSDK.h"
+
 
 #endif /* QRCodeReader_Prefix_pch */
