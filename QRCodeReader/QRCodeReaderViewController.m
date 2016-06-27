@@ -21,6 +21,8 @@
     barcodeScanner = self.scanner;
     [barcodeScanner setSymbology:ZBAR_I25 config:ZBAR_CFG_ENABLE to:0];
     
+    
+    
 }
 
 
