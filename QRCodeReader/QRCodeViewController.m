@@ -18,8 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.allheight = [[UIScreen mainScreen] bounds].size.height;
-    self.allWidth = self.allheight;
+    self.allHeight = [[UIScreen mainScreen] bounds].size.height;
+    self.allWidth = self.allHeight;
 
     
     CIFilter *ciFilter = [CIFilter filterWithName:@"CIFilter"];

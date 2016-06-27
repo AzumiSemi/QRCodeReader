@@ -8,7 +8,7 @@
 
 @interface QRCodeViewController : UIViewController
 
-@property (nonatomic, assign) CGFloat allheight;
+@property (nonatomic, assign) CGFloat allHeight;
 @property (nonatomic, assign) CGFloat allWidth;
 
 @end
