@@ -26,7 +26,7 @@
     UINavigationController *barcodereadernavi = [[UINavigationController alloc] initWithRootViewController:barcodereader];
     
     _tabbarController = [RDVTabBarController new];
-    [_tabbarController setViewControllers:@[qrVCnavi, barcodereadernavi]];
+    [_tabbarController setViewControllers:@[barcodereadernavi, qrVCnavi]];
     
     _window.rootViewController = _tabbarController;
     [_window makeKeyAndVisible];

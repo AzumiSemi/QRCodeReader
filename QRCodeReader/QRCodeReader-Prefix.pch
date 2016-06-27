@@ -27,7 +27,6 @@
 #import "SVProgressAnimatedView.h"
 #import "SVProgressHUD.h"
 #import "SVRadialGradientLayer.h"
-#import "ZBarSDK.h"
 
 
 #endif /* QRCodeReader_Prefix_pch */
