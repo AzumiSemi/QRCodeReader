@@ -15,22 +15,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.allheight = [[UIScreen mainScreen] bounds].size.height;
+    self.allWidth = self.allheight;
+
+    
+    CIFilter *ciFilter = [CIFilter filterWithName:@"CIFilter"];
+    NSData *qrData = [[NSString stringWithFormat:@""] dataUsingEncoding:NSUTF8StringEncoding];
+    [ciFilter setValue:qrData forKey:@""];
+    CGImageRef cgImage = [[CIContext contextWithOptions:nil] createCGImage:[ciFilter outputImage] fromRect:[[ciFilter outputImage] extent]];
+    [[CIContext contextWithOptions:nil] createCGImage:[ciFilter outputImage] fromRect:[[ciFilter outputImage] extent]];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
