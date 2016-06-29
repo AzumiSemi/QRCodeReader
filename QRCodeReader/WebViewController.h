@@ -9,4 +9,6 @@
 
 @interface WebViewController : UIViewController
 
+- (id) initWithUrl:(NSString *) webUrl;
+
 @end

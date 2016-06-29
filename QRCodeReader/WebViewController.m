@@ -16,33 +16,44 @@
 
 @implementation WebViewController
 
+- (id)initWithUrl:(NSString *)webUrl {
+    self = [super init];
+    if (self) {
+        _webURL = [NSString stringWithString:webUrl];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(cancel)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(dismissView)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     
-    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, fullWidth, fullWidth)];
     _webView.scalesPageToFit = YES;
     [self.view addSubview:_webView];
     
-    NJKWebViewProgress *webViewProgress = [[NJKWebViewProgress alloc] init];
-    _webView.delegate = webViewProgress;
-    webViewProgress.progressDelegate = self;
+    NJKWebViewProgress *progressProxy = [[NJKWebViewProgress alloc] init];
+    _webView.delegate = progressProxy;
+    progressProxy.webViewProxyDelegate = self;
+    progressProxy.progressDelegate = self;
+    
     
     CGRect navigationBar = self.navigationController.navigationBar.bounds;
-    CGRect barFrame = CGRectMake(0, navigationBar.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height, navigationBar.size.width, [[UIApplication sharedApplication] statusBarFrame].size.height);
+    CGRect barFrame = CGRectMake(0, navigationBar.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height,
+                                 navigationBar.size.width, [[UIApplication sharedApplication] statusBarFrame].size.height);
     
     _progressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
     _progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_webURL]]];
 }
 
-- (void) cancel {
+- (void) dismissView {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress {
-    [_progressView setProgress:progress animated:YES];
+    [_progressView setProgress:progress animated:NO];
     self.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 }
 
