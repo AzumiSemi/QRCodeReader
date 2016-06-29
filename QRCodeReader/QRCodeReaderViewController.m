@@ -7,7 +7,7 @@
 //
 
 @interface QRCodeReaderViewController () <ZBarReaderDelegate> {
-    ZBarImageScanner * barcodeScanner;
+    UILabel *textLabel;
 }
 
 @end
@@ -16,11 +16,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.supportedOrientationsMask = ZBarOrientationMaskAll;
+    
+    NSLog(@"Scanning...");
+    _resultTextView.text = @"Scanning...";
+    
     self.readerDelegate = self;
-    barcodeScanner = self.scanner;
+    self.supportedOrientationsMask = ZBarOrientationMaskAll;
+
+    ZBarImageScanner * barcodeScanner = self.scanner;
     [barcodeScanner setSymbology:ZBAR_I25 config:ZBAR_CFG_ENABLE to:0];
     
+}
+
+- (void) readerControllerDidFailToRead:(ZBarReaderController *)reader withRetry:(BOOL)retry {
+    NSLog(@"the image picker failing to reader");
+}
+
+- (void) reader: (QRCodeViewController *) reader didScanResult: (NSString *) result {
+    
+}
+
+-(BOOL)hasQRCode:(UIImage *)image
+{
+    ZBarImage *zbarimg = [[ZBarImage alloc] initWithCGImage:image.CGImage];
+    ZBarImageScanner *Scanner = [[ZBarImageScanner alloc] init];
+    BOOL hasqr = [Scanner scanImage:zbarimg];
+    return hasqr;
 }
 
 - (void) imagePickerController: (UIImagePickerController*) reader didFinishPickingMediaWithInfo: (NSDictionary*) info {
@@ -28,11 +49,19 @@
     NSLog(@"the image picker is calling successfully %@",info);
     id <NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
     ZBarSymbol *symbol = nil;
-    NSString *hiddenData;
     for(symbol in results)
-        hiddenData=[NSString stringWithString:symbol.data];
+        break;
+    
+    _resultTextView.text = symbol.data;
+    _resultImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
 
-    [self presentViewController:barcodeScanner animated:YES completion:nil];
+    [reader dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+- (void) viewController: (UIViewController *) viewController {
+    WebViewController *webVC = [WebViewController new];
+    [self presentViewController: webVC animated:YES completion:nil];
+}
+
 @end
