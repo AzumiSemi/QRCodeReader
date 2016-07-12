@@ -7,9 +7,9 @@
 //
 
 @interface WebViewController () <UIWebViewDelegate, NJKWebViewProgressDelegate> {
-    NSString *_webURL;
-    UIWebView *_webView;
-    NJKWebViewProgressView *_progressView;
+    NSString                *_webURL;
+    UIWebView               *_webView;
+    NJKWebViewProgressView  *_progressView;
 }
 
 @end

@@ -8,8 +8,8 @@
 
 
 @interface QRCodeViewController () {
-    UIImage *_image;
-    UIImageView *_imageView;
+    UIImage         *_image;
+    UIImageView     *_imageView;
 }
 
 @end

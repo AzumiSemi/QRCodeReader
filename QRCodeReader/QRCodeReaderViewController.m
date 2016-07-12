@@ -6,10 +6,7 @@
 //  Copyright © 2016年 Tsubasa Yonenaga. All rights reserved.
 //
 
-@interface QRCodeReaderViewController () <ZBarReaderDelegate> {
-    UILabel *textLabel;
-}
-
+@interface QRCodeReaderViewController () <ZBarReaderDelegate>
 @end
 
 @implementation QRCodeReaderViewController
