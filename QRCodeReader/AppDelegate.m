@@ -19,15 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     QRCodeViewController *qrVC = [QRCodeViewController new];
     UINavigationController *qrVCnavi = [[UINavigationController alloc] initWithRootViewController:qrVC];
     QRCodeReaderViewController *barcodereader = [QRCodeReaderViewController new];
     UINavigationController *barcodereadernavi = [[UINavigationController alloc] initWithRootViewController:barcodereader];
-    
     _tabbarController = [RDVTabBarController new];
     [_tabbarController setViewControllers:@[barcodereadernavi, qrVCnavi]];
-    
     _window.rootViewController = _tabbarController;
     [_window makeKeyAndVisible];
     // Override point for customization after application launch.
