@@ -14,7 +14,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    NSLog(@"Scanning...");
     _resultTextView.text = @"Scanning...";
     
     self.readerDelegate = self;
@@ -23,8 +22,6 @@
     ZBarImageScanner * barcodeScanner = self.scanner;
     [barcodeScanner setSymbology:ZBAR_I25 config:ZBAR_CFG_ENABLE to:0];
     
-//    [self presentViewController: self animated:YES completion:nil];
-
 }
 
 - (void) readerControllerDidFailToRead:(ZBarReaderController *)reader withRetry:(BOOL)retry {
@@ -52,15 +49,11 @@
         break;
     NSLog(@"%@",symbol.data);
     
+    NSString * firstLink = @"https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&url=search-alias%3Daps&field-keywords=";
     
-
-    [reader dismissViewControllerAnimated:YES completion:nil];
+    WebViewController *webVC = [[WebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",firstLink,symbol.data]];
+    [self.navigationController pushViewController:webVC animated:YES];
     
 }
-
-//- (void) viewController: (UIViewController *) viewController {
-//    WebViewController *webVC = [WebViewController new];
-//    [self presentViewController: webVC animated:YES completion:nil];
-//}
 
 @end

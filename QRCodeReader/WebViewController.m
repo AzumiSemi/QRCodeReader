@@ -29,15 +29,13 @@
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(dismissView)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     
-    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, fullWidth, fullWidth)];
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, fullWidth, fullHeight)];
     _webView.scalesPageToFit = YES;
     [self.view addSubview:_webView];
-    
-    NJKWebViewProgress *progressProxy = [[NJKWebViewProgress alloc] init];
-    _webView.delegate = progressProxy;
+    NJKWebViewProgress *progressProxy = [NJKWebViewProgress new];
     progressProxy.webViewProxyDelegate = self;
     progressProxy.progressDelegate = self;
-    
+    _webView.delegate = self;
     
     CGRect navigationBar = self.navigationController.navigationBar.bounds;
     CGRect barFrame = CGRectMake(0, navigationBar.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height,
@@ -49,30 +47,29 @@
 }
 
 - (void) dismissView {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress {
     [_progressView setProgress:progress animated:NO];
-    self.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:YES];
-    [SVProgressHUD dismiss];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar addSubview:_progressView];
-    [SVProgressHUD show];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    return YES;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
+    [SVProgressHUD show];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [SVProgressHUD dismiss];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
