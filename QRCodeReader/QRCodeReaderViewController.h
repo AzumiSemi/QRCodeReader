@@ -10,7 +10,6 @@
 
 @interface QRCodeReaderViewController : ZBarReaderViewController
 
-@property (nonatomic, strong) UIImageView *resultImageView;
 @property (nonatomic, strong) UITextView  *resultTextView;
 
 @end

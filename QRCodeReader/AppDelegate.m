@@ -19,16 +19,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    QRCodeViewController *qrVC = [QRCodeViewController new];
-    UINavigationController *qrVCnavi = [[UINavigationController alloc] initWithRootViewController:qrVC];
+    
     QRCodeReaderViewController *barcodereader = [QRCodeReaderViewController new];
     UINavigationController *barcodereadernavi = [[UINavigationController alloc] initWithRootViewController:barcodereader];
+    QRCodeViewController *qrVC = [QRCodeViewController new];
+    UINavigationController *qrVCnavi = [[UINavigationController alloc] initWithRootViewController:qrVC];
+    
     _tabbarController = [RDVTabBarController new];
     [_tabbarController setViewControllers:@[barcodereadernavi, qrVCnavi]];
     _window.rootViewController = _tabbarController;
+    [self custmizeTabBarController:_tabbarController];
     [_window makeKeyAndVisible];
-    // Override point for customization after application launch.
     return YES;
+}
+
+- (void) custmizeTabBarController:(RDVTabBarController *)tabBarController {
+    NSInteger index = 0;
+    for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
+        NSArray *tabBarItemsImages = @[@"QRCodeReader_Image", @"QRCode_Image"];
+        UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected", [tabBarItemsImages objectAtIndex:index]]];
+        UIImage *unselectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_normal", [tabBarItemsImages objectAtIndex:index]]];
+        [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:unselectedImage];
+        index++;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

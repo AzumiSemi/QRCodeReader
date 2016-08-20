@@ -12,5 +12,7 @@
 #define fullHeight [UIScreen mainScreen].bounds.size.height
 #define fullWidth  [UIScreen mainScreen].bounds.size.width
 
+#define kBlack82Color   [[UIColor blackColor] colorWithAlphaComponent:0.82]
+#define iceGreen        [UIColor colorWithRed:163/255.0 green:214/255.0 blue:204/255.0 alpha:1.0]
 
 #endif /* Frame_h */

@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     CIFilter *ciFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    NSData *qrData = [[NSString stringWithFormat:@"https://github.com/bmorton/ZBarSDK"] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *qrData = [[NSString stringWithFormat:@"http://www.souko.co.jp/"] dataUsingEncoding:NSUTF8StringEncoding];
     [ciFilter setValue:qrData forKey:@"inputMessage"];
     CGImageRef cgImage = [[CIContext contextWithOptions:nil] createCGImage:[ciFilter outputImage] fromRect:[[ciFilter outputImage] extent]];
     [[CIContext contextWithOptions:nil] createCGImage:[ciFilter outputImage] fromRect:[[ciFilter outputImage] extent]];

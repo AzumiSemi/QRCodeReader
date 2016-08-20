@@ -15,7 +15,6 @@
     [super viewDidLoad];
     
     _resultTextView.text = @"Scanning...";
-    
     self.readerDelegate = self;
     self.supportedOrientationsMask = ZBarOrientationMaskAll;
 
@@ -35,7 +34,7 @@
 -(BOOL)hasQRCode:(UIImage *)image
 {
     ZBarImage *zbarimg = [[ZBarImage alloc] initWithCGImage:image.CGImage];
-    ZBarImageScanner *Scanner = [[ZBarImageScanner alloc] init];
+    ZBarImageScanner *Scanner = [ZBarImageScanner new];
     BOOL hasqr = [Scanner scanImage:zbarimg];
     return hasqr;
 }
